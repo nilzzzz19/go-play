@@ -1,3 +1,5 @@
-data/
+#exclude data folder
+exclude ./data/*
 
-.env
+#exclude .env file
+exclude ./video-upload-service/.env
