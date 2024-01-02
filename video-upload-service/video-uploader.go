@@ -2,13 +2,16 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"io"
+	"time"
 
 	"cloud.google.com/go/storage"
 	"github.com/gin-gonic/gin"
 )
 
 func handleVideoUpload(c *gin.Context) {
+
 	//retrieve the file from form-data
 	file, err := c.FormFile("file")
 	if err != nil {
@@ -53,7 +56,10 @@ func handleVideoUpload(c *gin.Context) {
 }
 
 func main() {
+	start_time := time.Now()
 	r := gin.Default()
 	r.POST("/upload", handleVideoUpload)
 	r.Run(":8082")
+	elapsed := time.Since(start_time)
+	fmt.Println("Time taken to start server: ", elapsed)
 }
