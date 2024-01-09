@@ -6,3 +6,5 @@
 
 #Ingnore v21 folder
 /frontend/go-player/v21.5.0
+
+/frontend/node_modules/*
